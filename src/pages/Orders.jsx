@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import MainLayout from "../layout/MainLayout";
 import API from "../services/api";

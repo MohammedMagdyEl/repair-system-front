@@ -6,6 +6,7 @@ import Orders from "./pages/Orders";
 import AddOrder from "./pages/AddOrder";
 import Centers from "./pages/Centers";
 import Status from "./pages/Status";
+import CenterDetails from "./pages/CenterDetails";
 
 // 🔒 PrivateRoute لحماية الصفحات
 function PrivateRoute({ children }) {
@@ -50,6 +51,14 @@ export default function App() {
           element={
             <PrivateRoute>
               <Centers />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/centers/:centerName"
+          element={
+            <PrivateRoute>
+              <CenterDetails />
             </PrivateRoute>
           }
         />
