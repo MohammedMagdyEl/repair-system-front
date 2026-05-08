@@ -203,6 +203,7 @@ export default function CenterDetails() {
       toast.success("تم تسجيل الدفعة وخصمها من الحساب ✅");
       setNewPayment({ amount: "", receivedBy: "" });
       loadData(); // إعادة تحميل الداتا
+    // eslint-disable-next-line no-unused-vars
     } catch (error) {
       toast.error("فشل تسجيل الدفعة");
     }

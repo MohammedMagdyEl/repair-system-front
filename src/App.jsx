@@ -7,6 +7,7 @@ import AddOrder from "./pages/AddOrder";
 import Centers from "./pages/Centers";
 import Status from "./pages/Status";
 import CenterDetails from "./pages/CenterDetails";
+import LockedPage from "./pages/LockedPage";
 
 // 🔒 PrivateRoute لحماية الصفحات
 function PrivateRoute({ children }) {
@@ -42,7 +43,8 @@ export default function App() {
           path="/add"
           element={
             <PrivateRoute>
-              <AddOrder />
+              <LockedPage/>
+              {/* <AddOrder /> */}
             </PrivateRoute>
           }
         />
