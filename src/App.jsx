@@ -43,7 +43,7 @@ export default function App() {
           path="/add"
           element={
             <PrivateRoute>
-              <LockedPage/>
+              <AddOrder/>
               {/* <AddOrder /> */}
             </PrivateRoute>
           }
