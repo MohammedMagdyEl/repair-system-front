@@ -20,6 +20,7 @@ export default function useCenterFinance(centerName) {
       const centerOrders = rawOrders.filter(
         (o) => o.center === centerName
       );
+      // 
       setOrders(centerOrders);
       setPayments(resPayments.data || []);
     } catch (error) {
