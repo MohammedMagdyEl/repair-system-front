@@ -14,7 +14,7 @@ export default function Centers() {
     try {
       const res = await API.get("/status");
       setStatus(res.data);
-      // eslint-disable-next-line no-unused-vars
+      
     } catch (error) {
       toast.error("فشل في تحميل المراكز");
     } finally {
@@ -36,32 +36,32 @@ export default function Centers() {
         name: form.name,
       });
       toast.success("تم إضافة الحالة بنجاح ✅");
-      setForm({ name: "" }); // تصفير الفورم
+      setForm({ name: "" }); 
       load();
-      // eslint-disable-next-line no-unused-vars
+      
     } catch (error) {
       toast.error("حدث خطأ أثناء الإضافة");
     }
   };
 
-  // 🚀 إضافة ميزة المسح (اختياري)
-  //   const deleteStatus = (id) => {
-  //     Swal.fire({
-  //       title: "هل أنت متأكد؟",
-  //       text: "سيتم حذف المركز نهائياً!",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#ef4444",
-  //       confirmButtonText: "نعم، احذف",
-  //       cancelButtonText: "إلغاء",
-  //     }).then(async (result) => {
-  //       if (result.isConfirmed) {
-  //         await API.delete(`/centers/${id}`);
-  //         toast.success("تم الحذف");
-  //         load();
-  //       }
-  //     });
-  //   };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   const deleteStatus = (id) => {
     Swal.fire({
       title: "هل أنت متأكد؟",
@@ -99,7 +99,7 @@ export default function Centers() {
         </h2>
       </div>
 
-      {/* 📥 نموذج الإضافة */}
+      {}
       <div className="bg-white p-6 rounded-3xl shadow-xl border border-slate-100 mb-10">
         <p className="text-slate-500 mb-4 font-bold text-sm">إضافة حالة جديد</p>
         <div className="flex flex-col md:flex-row gap-4">
@@ -124,7 +124,7 @@ export default function Centers() {
         </div>
       </div>
 
-      {/* 📊 عرض المراكز */}
+      {}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {status.length > 0 ? (
           status.map((c) => (

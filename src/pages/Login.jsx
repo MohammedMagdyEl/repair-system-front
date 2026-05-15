@@ -17,11 +17,11 @@ export default function Login() {
       loading: "جاري التحقق...",
       success: (res) => {
         const { token } = res.data;
-        // 1. حفظ التوكن في الـ LocalStorage
+        
         localStorage.setItem("token", token);
-        // 2. تحديث الـ Headers في Axios فوراً
+        
         setAuthToken(token);
-        // 3. التوجيه لصفحة الطلبات
+        
         nav("/orders");
         return "أهلاً بك مجدداً ✅";
       },

@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://repair-system-back.vercel.app/",
-  // baseURL: "http://localhost:9000",
+  
+  baseURL: "http://localhost:9000",
 });
 
 API.interceptors.request.use((config) => {
@@ -11,7 +11,6 @@ API.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-
   return config;
 });
 
@@ -20,5 +19,4 @@ export const setAuthToken = (token) => {
     API.defaults.headers.common["token"] = token;
   }
 };
-
 export default API;

@@ -1,4 +1,4 @@
-// App.jsx
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -9,9 +9,8 @@ import Status from "./pages/Status";
 import CenterDetails from "./pages/CenterDetails";
 import LockedPage from "./pages/LockedPage";
 
-// 🔒 PrivateRoute لحماية الصفحات
 function PrivateRoute({ children }) {
-  const token = localStorage.getItem("token"); // مثال على التحقق من تسجيل الدخول
+  const token = localStorage.getItem("token"); 
   return token ? children : <Navigate to="/" />;
 }
 
@@ -19,10 +18,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* صفحة تسجيل الدخول */}
+        {}
         <Route path="/" element={<Login />} />
 
-        {/* صفحات محمية */}
+        {}
         <Route
           path="/dashboard"
           element={
@@ -43,8 +42,8 @@ export default function App() {
           path="/add"
           element={
             <PrivateRoute>
-              <LockedPage/>
-              {/* <AddOrder /> */}
+              {}
+              <AddOrder />
             </PrivateRoute>
           }
         />
@@ -73,7 +72,7 @@ export default function App() {
           }
         />
 
-        {/* صفحة 404 لأي رابط غير موجود */}
+        {}
         <Route
           path="*"
           element={

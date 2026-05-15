@@ -1,5 +1,4 @@
 
-import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   FaClipboardList,
@@ -8,39 +7,16 @@ import {
   FaIndustry,
   FaSignOutAlt,
 } from "react-icons/fa";
-import { jwtDecode } from "jwt-decode"; // استيراد مكتبة فك التوكن
+import useAuth from "../hooks/useAuth";
 
 export default function MainLayout({ children }) {
-  const [userRole, setUserRole] = useState(""); // استيت لحفظ الرول
+  const { userRole, logout } = useAuth();
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
 
-  useEffect(() => {
-    // 1. هات التوكن من اللوكل استورج
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      try {
-        // 2. فك تشفير التوكن
-        const decoded = jwtDecode(token);
-        // 3. اسحب الـ role منه (تأكد أن الاسم في التوكن هو role)
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setUserRole(decoded.role);
-      } catch (error) {
-        console.error("خطأ في فك التوكن:", error);
-        setUserRole("");
-      }
-    }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/";
-  };
-
   return (
     <div className="flex h-screen bg-slate-50 font-sans" dir="rtl">
-      {/* Sidebar - القائمة الجانبية */}
+      {}
       <aside className="w-72 text-slate-500 flex flex-col shadow-2xl z-20">
         <div className="p-8 flex flex-col items-center border-b border-slate-800">
           <div className="bg-blue-600 p-3 rounded-2xl shadow-lg shadow-blue-900/20 mb-3">
@@ -55,7 +31,7 @@ export default function MainLayout({ children }) {
         </div>
 
         <nav className="flex-1 px-4 py-6 flex flex-col gap-2 overflow-y-auto">
-          {/* يمكنك هنا أيضاً إخفاء روابط معينة بناءً على الـ Role */}
+          {}
           {userRole === "Admin" && (
             <NavItem
               to="/dashboard"
@@ -90,7 +66,7 @@ export default function MainLayout({ children }) {
 
         <div className="p-4 border-t border-slate-800">
           <button
-            onClick={handleLogout}
+            onClick={logout}
             className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-red-500/10 hover:text-red-500 transition-all font-bold text-sm"
           >
             <FaSignOutAlt />
@@ -99,14 +75,14 @@ export default function MainLayout({ children }) {
         </div>
       </aside>
 
-      {/* المحتوى الرئيسي */}
+      {}
       <main className="flex-1 flex flex-col h-full overflow-hidden">
-        {/* Top Header - الهيدر الديناميكي */}
+        {}
         <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shadow-sm">
           <div className="text-slate-400 text-sm">
             أهلاً بك،{" "}
             <span className="text-slate-800 font-bold">
-              {/* التغيير هنا بناءً على الـ Role */}
+              {}
               {userRole === "Admin" ? "admin" : "user "} 👋
             </span>
           </div>
